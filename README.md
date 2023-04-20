@@ -9,3 +9,4 @@ I've watched most of the series already and now I want to work through it so tha
 - 2023-04-19: Finished [video 1 - player controller](https://www.youtube.com/watch?v=jdv8erC7ML8&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=2)
 - 2023-04-19: Finished [video 2 - gun system](https://www.youtube.com/watch?v=rZAnnyensgs&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=3)
 - 2023-04-19: Finished [video 3 - enemies](https://www.youtube.com/watch?v=UnPZyFjUvOM&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=4)
+- 2023-04-20: Finished [video 4 - damage system](https://www.youtube.com/watch?v=v0zVBtZpB-8&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=5)

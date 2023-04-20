@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Enemy : MonoBehaviour
+public class Enemy : LivingEntity
 {
   public float pathfinderRefreshRate = 0.25f;
 
   NavMeshAgent pathfinder;
   Transform target;
 
-  void Start()
+  protected override void Start()
   {
+    base.Start();
+
     pathfinder = GetComponent<NavMeshAgent>();
     target = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -29,7 +31,12 @@ public class Enemy : MonoBehaviour
     while (target != null)
     {
       var targetPosition = target.position.WithY(0);
-      pathfinder.SetDestination(targetPosition);
+
+      if (!dead)
+      {
+        pathfinder.SetDestination(targetPosition);
+      }
+
       yield return new WaitForSeconds(pathfinderRefreshRate);
     }
   }

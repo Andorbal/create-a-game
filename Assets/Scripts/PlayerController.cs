@@ -10,12 +10,12 @@ public class PlayerController : MonoBehaviour
   Vector3 velocity;
   Rigidbody myRigidbody;
 
-  public void Start()
+  void Start()
   {
     myRigidbody = GetComponent<Rigidbody>();
   }
 
-  public void FixedUpdate()
+  void FixedUpdate()
   {
     myRigidbody.MovePosition(myRigidbody.position + velocity * Time.fixedDeltaTime);
   }
