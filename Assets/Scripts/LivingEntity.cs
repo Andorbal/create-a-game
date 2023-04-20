@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LivingEntity : MonoBehaviour, IDamageable
 {
+  public event Action OnDeath;
+
   public float startingHealth;
   protected float health;
   protected bool dead;
@@ -26,7 +29,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
   protected void Die()
   {
     dead = true;
-
+    OnDeath?.Invoke();
     GameObject.Destroy(gameObject);
   }
 }
