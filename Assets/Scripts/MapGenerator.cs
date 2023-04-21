@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,16 @@ using UnityEngine;
 public class MapGenerator : MonoBehaviour
 {
   public Transform tilePrefab;
+  public Transform obstaclePrefab;
   public Vector2 mapSize;
 
   [Range(0, 1)]
   public float outlinePercent;
+
+  public int seed;
+
+  List<Coord> allTileCoords;
+  Queue<Coord> shuffledTileCoords;
 
   void Start()
   {
@@ -17,6 +24,17 @@ public class MapGenerator : MonoBehaviour
 
   public void GenerateMap()
   {
+    allTileCoords = new List<Coord>();
+
+    for (int x = 0; x < mapSize.x; x += 1)
+    {
+      for (int y = 0; y < mapSize.y; y += 1)
+      {
+        allTileCoords.Add(new Coord(x, y));
+      }
+    }
+    shuffledTileCoords = new Queue<Coord>(Utility.ShuffleArray(allTileCoords.ToArray(), seed));
+
     string holderName = "Generated Map";
     if (transform.Find(holderName))
     {
@@ -30,10 +48,33 @@ public class MapGenerator : MonoBehaviour
     {
       for (int y = 0; y < mapSize.y; y += 1)
       {
-        var tilePosition = new Vector3(-mapSize.x / 2 + 0.5f + x, 0, -mapSize.y / 2 + 0.5f + y);
+        var tilePosition = CoordToPosition(x, y);
         var newTile = Instantiate(tilePrefab, tilePosition, Quaternion.Euler(Vector3.right * 90), mapHolder);
         newTile.localScale = Vector3.one * (1 - outlinePercent);
       }
     }
+
+    int obstacleCount = 10;
+    for (int i = 0; i < obstacleCount; i += 1)
+    {
+      var randomCoord = GetRandomCoord();
+      var obstaclePosition = CoordToPosition(randomCoord.x, randomCoord.y).WithY(0.5f);
+      var newObstacle = Instantiate(obstaclePrefab, obstaclePosition, Quaternion.identity, mapHolder);
+    }
   }
+
+  Vector3 CoordToPosition(int x, int y)
+  {
+    return new Vector3(-mapSize.x / 2 + 0.5f + x, 0, -mapSize.y / 2 + 0.5f + y);
+  }
+
+  public Coord GetRandomCoord()
+  {
+    var randomCoord = shuffledTileCoords.Dequeue();
+    shuffledTileCoords.Enqueue(randomCoord);
+    return randomCoord;
+  }
+
+  [Serializable]
+  public record Coord(int x, int y);
 }

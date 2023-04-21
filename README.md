@@ -14,3 +14,4 @@ I've watched most of the series already and now I want to work through it so tha
 - 2023-04-20: Finished [video 6 - enemy attacks](https://www.youtube.com/watch?v=njqRlH3Hj3Q&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=7)
 - 2023-04-20: Finished [video 7 - loose ends](https://www.youtube.com/watch?v=-mEbCEENpjU&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=8)
 - 2023-04-20: Finished [video 8 - tile map](https://www.youtube.com/watch?v=gIUVRYViG_g&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=9)
+- 2023-04-20: Finished [video 9 - obstacle placement](https://www.youtube.com/watch?v=q7BL-lboRXo&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=10)
