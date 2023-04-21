@@ -9,7 +9,22 @@ public class Projectile : MonoBehaviour
   float speed = 10;
   float damage = 1;
 
+  float lifetime = 3;
+  float skinWidth = .1f;
+
   public float Speed { set { speed = value; } }
+
+  void Start()
+  {
+    Destroy(gameObject, lifetime);
+
+    // Handle when the bullet spawns within an enemy
+    var initialCollisions = Physics.OverlapSphere(transform.position, .1f, collisionMask);
+    if (initialCollisions.Length > 0)
+    {
+      OnHitObject(initialCollisions[0]);
+    }
+  }
 
   void Update()
   {
@@ -21,7 +36,7 @@ public class Projectile : MonoBehaviour
   void CheckCollisions(float moveDistance)
   {
     Ray ray = new(transform.position, transform.forward);
-    if (Physics.Raycast(ray, out RaycastHit hit, moveDistance, collisionMask, QueryTriggerInteraction.Collide))
+    if (Physics.Raycast(ray, out RaycastHit hit, moveDistance + skinWidth, collisionMask, QueryTriggerInteraction.Collide))
     {
       OnHitObject(hit);
     }
@@ -32,6 +47,14 @@ public class Projectile : MonoBehaviour
     print(hit.collider.gameObject.name);
     var damageableObject = hit.collider.GetComponent<IDamageable>();
     damageableObject?.TakeHit(damage, hit);
+
+    GameObject.Destroy(gameObject);
+  }
+
+  void OnHitObject(Collider c)
+  {
+    var damageableObject = c.GetComponent<IDamageable>();
+    damageableObject?.TakeDamage(damage);
 
     GameObject.Destroy(gameObject);
   }

@@ -12,3 +12,4 @@ I've watched most of the series already and now I want to work through it so tha
 - 2023-04-20: Finished [video 4 - damage system](https://www.youtube.com/watch?v=v0zVBtZpB-8&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=5)
 - 2023-04-20: Finished [video 5 - spawn system](https://www.youtube.com/watch?v=ajwRvAGKl_k&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=6)
 - 2023-04-20: Finished [video 6 - enemy attacks](https://www.youtube.com/watch?v=njqRlH3Hj3Q&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=7)
+- 2023-04-20: Finished [video 7 - loose ends](https://www.youtube.com/watch?v=-mEbCEENpjU&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=8)
