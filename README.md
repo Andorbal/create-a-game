@@ -18,3 +18,4 @@ I've watched most of the series already and now I want to work through it so tha
 - 2023-04-22: Finished [video 10 - map connectivity](https://www.youtube.com/watch?v=2ycN6ZkWgOo&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=11)
 - 2023-04-22: Finished [video 11 - map navigation](https://www.youtube.com/watch?v=vQgLdFNrCN8&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=12)
 - 2023-04-23: Finished [video 12 - finishing the map](https://www.youtube.com/watch?v=HuQITd3epIU&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=13)
+- 2023-04-23: Finished [video 13 - random spawning](https://www.youtube.com/watch?v=vOC3usydLeE&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=14)

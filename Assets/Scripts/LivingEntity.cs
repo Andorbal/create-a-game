@@ -24,7 +24,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
   public void TakeDamage(float damage)
   {
     health -= damage;
-    print($"{gameObject.name} health {health}");
 
     if (health <= 0 && !dead)
     {
