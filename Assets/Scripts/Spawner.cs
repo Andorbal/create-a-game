@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+
+  public event Action<int> OnNewWave;
+
   [Serializable]
   public class Wave
   {
@@ -99,13 +102,16 @@ public class Spawner : MonoBehaviour
   {
     currentWaveNumber += 1;
 
-    print($"Wave {currentWaveNumber}");
     if (currentWaveNumber - 1 < waves.Length)
     {
       currentWave = waves[currentWaveNumber - 1];
 
       enemiesRemainingAlive = currentWave.enemyCount;
       enemiesRemainingToSpawn = currentWave.enemyCount;
+
+      OnNewWave?.Invoke(currentWaveNumber);
+
+      ResetPlayerPosition();
     }
   }
 
@@ -117,6 +123,11 @@ public class Spawner : MonoBehaviour
     {
       NextWave();
     }
+  }
+
+  void ResetPlayerPosition()
+  {
+    playerTransform.position = map.GetTileFromPosition(Vector3.zero).position + Vector3.up * 3;
   }
 
   void OnPlayerDeath()
