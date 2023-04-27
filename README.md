@@ -20,3 +20,5 @@ I've watched most of the series already and now I want to work through it so tha
 - 2023-04-23: Finished [video 12 - finishing the map](https://www.youtube.com/watch?v=HuQITd3epIU&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=13)
 - 2023-04-23: Finished [video 13 - random spawning](https://www.youtube.com/watch?v=vOC3usydLeE&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=14)
 - 2023-04-25: Finished [video 14 - game over](https://www.youtube.com/watch?v=YaLMri-h1JQ&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=15)
+- 2023-04-25: Finished [video 15 - particle death effect](https://www.youtube.com/watch?v=PAKYDX9gPNQ&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=16)
+- 2023-04-26: Finished [video 16 - weapon effects](https://www.youtube.com/watch?v=e1XO53GA7xM&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=17)

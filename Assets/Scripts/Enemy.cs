@@ -16,6 +16,8 @@ public class Enemy : LivingEntity
   public float pathfinderRefreshRate = 0.25f;
 
   State currentState;
+
+  public ParticleSystem deathEffect;
   NavMeshAgent pathfinder;
   Transform target;
   LivingEntity targetEntity;
@@ -73,6 +75,20 @@ public class Enemy : LivingEntity
       }
     }
 
+  }
+
+  public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
+  {
+    if (damage >= health)
+    {
+      Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)), deathEffect.main.startLifetimeMultiplier);
+    }
+    base.TakeHit(damage, hitPoint, hitDirection);
+  }
+
+  public override void TakeDamage(float damage)
+  {
+    base.TakeDamage(damage);
   }
 
   void OnTargetDeath()
