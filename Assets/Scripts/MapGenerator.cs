@@ -81,6 +81,7 @@ public class MapGenerator : MonoBehaviour
     // Spawning obstacles
     bool[,] obstacleMap = new bool[(int)currentMap.mapSize.x, (int)currentMap.mapSize.y];
 
+    var originCoord = GetCoordFromPosition(Vector3.zero);
     int obstacleCount = (int)(currentMap.mapSize.x * currentMap.mapSize.y * currentMap.obstaclePercent);
     int currentObstacleCount = 0;
     var allOpenCoords = new List<Coord>(allTileCoords);
@@ -91,7 +92,9 @@ public class MapGenerator : MonoBehaviour
       obstacleMap[randomCoord.x, randomCoord.y] = true;
       currentObstacleCount += 1;
 
-      if (randomCoord != currentMap.mapCenter && MapIsFullyAccessible(obstacleMap, currentObstacleCount))
+      if (randomCoord != currentMap.mapCenter &&
+        randomCoord != originCoord &&
+        MapIsFullyAccessible(obstacleMap, currentObstacleCount))
       {
         float obstacleHeight = Mathf.Lerp(currentMap.minObstacleHeight, currentMap.maxObstacleHeight, (float)rand.NextDouble());
         var obstaclePosition = CoordToPosition(randomCoord.x, randomCoord.y).WithY(obstacleHeight / 2);
@@ -172,20 +175,23 @@ public class MapGenerator : MonoBehaviour
     return targetAccessibleTileCount == accessibleTileCount;
   }
 
-  Vector3 CoordToPosition(int x, int y)
-  {
-    return new Vector3(-currentMap.mapSize.x / 2f + 0.5f + x, 0, -currentMap.mapSize.y / 2f + 0.5f + y) * tileSize;
-  }
+  Vector3 CoordToPosition(int x, int y) =>
+    new Vector3(-currentMap.mapSize.x / 2f + 0.5f + x, 0, -currentMap.mapSize.y / 2f + 0.5f + y) * tileSize;
 
-  public Transform GetTileFromPosition(Vector3 position)
+  public Coord GetCoordFromPosition(Vector3 position)
   {
     int x = Mathf.RoundToInt(position.x / tileSize + (currentMap.mapSize.x - 1) / 2f);
     int y = Mathf.RoundToInt(position.z / tileSize + (currentMap.mapSize.y - 1) / 2f);
 
-    x = Mathf.Clamp(x, 0, tileMap.GetLength(0) - 1);
-    y = Mathf.Clamp(y, 0, tileMap.GetLength(1) - 1);
+    return new Coord(
+        Mathf.Clamp(x, 0, tileMap.GetLength(0) - 1),
+        Mathf.Clamp(y, 0, tileMap.GetLength(1) - 1));
+  }
 
-    return tileMap[x, y];
+  public Transform GetTileFromPosition(Vector3 position)
+  {
+    var tileCoord = GetCoordFromPosition(position);
+    return tileMap[tileCoord.x, tileCoord.y];
   }
 
   public Coord GetRandomCoord()
@@ -226,6 +232,9 @@ public class MapGenerator : MonoBehaviour
       left?.x == right?.x && left?.y == right?.y;
     public static bool operator !=(Coord left, Coord right) =>
       !(left == right);
+
+    public override string ToString() =>
+      $"({x}, {y})";
   }
 
   [Serializable]
