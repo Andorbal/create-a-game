@@ -28,11 +28,10 @@ public class GunController : MonoBehaviour
     equippedGun = Instantiate(gunToEquip, weaponHold.position, weaponHold.rotation, weaponHold.transform);
   }
 
-  internal void Shoot()
+  public void OnTriggerHold()
   {
-    if (equippedGun != null)
-    {
-      equippedGun.Shoot();
-    }
+    equippedGun?.OnTriggerHold();
   }
+
+  public void OnTriggerRelease() => equippedGun?.OnTriggerRelease();
 }

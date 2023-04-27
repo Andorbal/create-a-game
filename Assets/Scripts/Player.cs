@@ -42,7 +42,12 @@ public class Player : LivingEntity
     // Weapon input
     if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
     {
-      gunController.Shoot();
+      gunController.OnTriggerHold();
+    }
+
+    if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space))
+    {
+      gunController.OnTriggerRelease();
     }
   }
 }
