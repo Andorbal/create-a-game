@@ -23,3 +23,6 @@ I've watched most of the series already and now I want to work through it so tha
 - 2023-04-25: Finished [video 15 - particle death effect](https://www.youtube.com/watch?v=PAKYDX9gPNQ&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=16)
 - 2023-04-26: Finished [video 16 - weapon effects](https://www.youtube.com/watch?v=e1XO53GA7xM&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=17)
 - 2023-04-26: Finished [video 17 - weapon variation](https://www.youtube.com/watch?v=yfSN6W98r4I&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=18)
+- 2023-04-27: Finished [video 18 - wave difficulty](https://www.youtube.com/watch?v=8fZIZMlC69s&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=19)
+- 2023-04-27: Finished [video 19 - crosshairs](https://www.youtube.com/watch?v=9bYy1uqHY0Q&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=20)
+- 2023-04-27: Finished [video 20 - recoil and reloading](https://www.youtube.com/watch?v=r8JTwe6dewU&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=21)

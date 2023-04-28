@@ -34,4 +34,12 @@ public class GunController : MonoBehaviour
   }
 
   public void OnTriggerRelease() => equippedGun?.OnTriggerRelease();
+  public float GunHeight { get => weaponHold.position.y; }
+
+  public void Aim(Vector3 aimPoint)
+  {
+    equippedGun?.Aim(aimPoint);
+  }
+
+  public void Reload() => equippedGun?.Reload();
 }

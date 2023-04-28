@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,27 +35,33 @@ public class Enemy : LivingEntity
 
   bool hasTarget;
 
-  protected override void Start()
+  void Awake()
   {
-    base.Start();
-
     pathfinder = GetComponent<NavMeshAgent>();
-    skinMaterial = GetComponent<Renderer>().material;
-    originalColor = skinMaterial.color;
-
     target = GameObject.FindGameObjectWithTag("Player")?.transform;
 
     if (target != null)
     {
-      currentState = State.Chasing;
-
       hasTarget = true;
+
       targetEntity = target.GetComponent<LivingEntity>();
-      targetEntity.OnDeath += OnTargetDeath;
+      //targetEntity.OnDeath += OnTargetDeath;
 
       myCollisionRadius = GetComponent<CapsuleCollider>().radius;
       targetCollisionRadius = target.GetComponent<CapsuleCollider>().radius;
 
+      //StartCoroutine(nameof(UpdatePath));
+    }
+  }
+
+  protected override void Start()
+  {
+    base.Start();
+
+    if (hasTarget)
+    {
+      currentState = State.Chasing;
+      targetEntity.OnDeath += OnTargetDeath;
       StartCoroutine(nameof(UpdatePath));
     }
   }
@@ -152,5 +159,19 @@ public class Enemy : LivingEntity
 
       yield return new WaitForSeconds(pathfinderRefreshRate);
     }
+  }
+
+  internal void SetCharacteristics(float moveSpeed, int hitsToKillPlayer, float enemyHealth, Color skinColor)
+  {
+    pathfinder.speed = moveSpeed;
+
+    if (hasTarget)
+    {
+      damage = Mathf.Ceil(targetEntity.startingHealth / hitsToKillPlayer);
+    }
+    startingHealth = enemyHealth;
+
+    skinMaterial = GetComponent<Renderer>().material;
+    originalColor = skinMaterial.color = skinColor;
   }
 }
