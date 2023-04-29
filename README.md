@@ -26,3 +26,5 @@ I've watched most of the series already and now I want to work through it so tha
 - 2023-04-27: Finished [video 18 - wave difficulty](https://www.youtube.com/watch?v=8fZIZMlC69s&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=19)
 - 2023-04-27: Finished [video 19 - crosshairs](https://www.youtube.com/watch?v=9bYy1uqHY0Q&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=20)
 - 2023-04-27: Finished [video 20 - recoil and reloading](https://www.youtube.com/watch?v=r8JTwe6dewU&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=21)
+- 2023-04-28: Finished [video 21 - guns & UI](https://www.youtube.com/watch?v=yoIPKI_iK5E&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=22)
+- 2023-04-29: Finished [video 22 - audio pt. 1](https://www.youtube.com/watch?v=C65ExBy6WPA&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=23)

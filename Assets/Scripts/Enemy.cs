@@ -45,12 +45,9 @@ public class Enemy : LivingEntity
       hasTarget = true;
 
       targetEntity = target.GetComponent<LivingEntity>();
-      //targetEntity.OnDeath += OnTargetDeath;
 
       myCollisionRadius = GetComponent<CapsuleCollider>().radius;
       targetCollisionRadius = target.GetComponent<CapsuleCollider>().radius;
-
-      //StartCoroutine(nameof(UpdatePath));
     }
   }
 
@@ -81,7 +78,6 @@ public class Enemy : LivingEntity
         }
       }
     }
-
   }
 
   public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
@@ -171,7 +167,7 @@ public class Enemy : LivingEntity
     }
     startingHealth = enemyHealth;
 
-    skinMaterial = GetComponent<Renderer>().material;
+    skinMaterial = GetComponent<Renderer>().sharedMaterial;
     originalColor = skinMaterial.color = skinColor;
   }
 }

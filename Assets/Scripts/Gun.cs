@@ -29,6 +29,8 @@ public class Gun : MonoBehaviour
   [Header("Effects")]
   public Transform shell;
   public Transform shellEjection;
+  public AudioClip shootAudio;
+  public AudioClip reloadAudio;
 
   MuzzleFlash muzzleFlash;
   float nextShotTime;
@@ -103,7 +105,7 @@ public class Gun : MonoBehaviour
       transform.localPosition -= Vector3.forward * Random.Range(kickMinMax.x, kickMinMax.y);
       recoilAngle += Random.Range(recoilAngleMinMax.x, recoilAngleMinMax.y);
       recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
-      print($"Recoil angle: {recoilAngle}");
+      AudioManager.Instance.PlaySound(shootAudio, transform.position);
     }
   }
 
@@ -112,6 +114,7 @@ public class Gun : MonoBehaviour
     if (!isReloading && projectilesRemainingInMagazine != projectilesPerMagazine)
     {
       StartCoroutine(nameof(AnimateReload));
+      AudioManager.Instance.PlaySound(reloadAudio, transform.position);
     }
   }
 
@@ -131,7 +134,6 @@ public class Gun : MonoBehaviour
 
       var interpolation = (-Mathf.Pow(percent, 2) + percent) * 4;
       var reloadAngle = Mathf.Lerp(0, maxReloadAngle, interpolation);
-      print($"Reload angle {reloadAngle}: {(initialRotation + Vector3.left * reloadAngle)}");
       transform.localEulerAngles = initialRotation + Vector3.left * reloadAngle;
 
       yield return null;
