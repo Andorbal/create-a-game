@@ -14,6 +14,8 @@ public class Enemy : LivingEntity
     Attacking,
   }
 
+  public static event Action OnDeathStatic;
+
   public float pathfinderRefreshRate = 0.25f;
 
   State currentState;
@@ -86,6 +88,7 @@ public class Enemy : LivingEntity
     AudioManager.Instance.PlaySound("Impact", transform.position);
     if (damage >= health)
     {
+      OnDeathStatic?.Invoke();
       AudioManager.Instance.PlaySound("Enemy Death", transform.position);
       Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)), deathEffect.main.startLifetimeMultiplier);
     }
@@ -169,8 +172,9 @@ public class Enemy : LivingEntity
       damage = Mathf.Ceil(targetEntity.startingHealth / hitsToKillPlayer);
     }
     startingHealth = enemyHealth;
-
-    skinMaterial = GetComponent<Renderer>().sharedMaterial;
+    var deathEffectMain = deathEffect.main;
+    deathEffectMain.startColor = new Color(skinColor.r, skinColor.g, skinColor.b, 1);
+    skinMaterial = GetComponent<Renderer>().material;
     originalColor = skinMaterial.color = skinColor;
   }
 }

@@ -4,6 +4,10 @@ This repository is for the game created from [Sebastian Lague's](https://www.you
 
 I've watched most of the series already and now I want to work through it so that I've got the codebase to refer to and so that I can get more experience just using Unity.
 
+The original game repo is [here](https://github.com/SebLague/Create-a-Game-Source).
+
+Just finished the tutorial series. I wasn't able to do the effects part at the end because the standard effects package is no longer offered as part of unity.
+
 ## History
 
 - 2023-04-19: Finished [video 1 - player controller](https://www.youtube.com/watch?v=jdv8erC7ML8&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=2)
@@ -28,3 +32,6 @@ I've watched most of the series already and now I want to work through it so tha
 - 2023-04-27: Finished [video 20 - recoil and reloading](https://www.youtube.com/watch?v=r8JTwe6dewU&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=21)
 - 2023-04-28: Finished [video 21 - guns & UI](https://www.youtube.com/watch?v=yoIPKI_iK5E&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=22)
 - 2023-04-29: Finished [video 22 - audio pt. 1](https://www.youtube.com/watch?v=C65ExBy6WPA&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=23)
+- 2023-04-29: Finished [video 23 - audio pt. 2](https://www.youtube.com/watch?v=xvpP9U20ioQ&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=24)
+- 2023-04-29: Finished [video 24 - menu](https://www.youtube.com/watch?v=EA-tBcTxE8M&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=25)
+- 2023-04-29: Finished [video 25 - finishing up](https://www.youtube.com/watch?v=_Ue8P4tNXOg&list=PLFt_AvWsXl0ctd4dgE1F8g3uec4zKNRV0&index=26)

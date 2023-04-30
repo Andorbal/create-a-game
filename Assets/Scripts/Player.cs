@@ -71,6 +71,12 @@ public class Player : LivingEntity
     {
       gunController.Reload();
     }
+
+    // Check death
+    if (transform.position.y < -10)
+    {
+      TakeDamage(health);
+    }
   }
 
   protected override void Die()

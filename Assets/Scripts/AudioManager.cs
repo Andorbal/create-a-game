@@ -64,32 +64,33 @@ public class AudioManager : MonoBehaviour
     }
 
     audioListenerTransform = FindObjectOfType<AudioListener>().transform;
-    playerTransform = FindObjectOfType<Player>().transform;
+    playerTransform = FindObjectOfType<Player>()?.transform;
     library = GetComponent<SoundLibrary>();
 
-    sfx2DSource = CreateAudioSource("2D Sfx source");
+    masterVolumePercent = PlayerPrefs.GetFloat("master volume", 0.75f);
+    sfxVolumePercent = PlayerPrefs.GetFloat("sfx volume", 0.75f);
+    musicVolumePercent = PlayerPrefs.GetFloat("music volume", 0.75f);
+
+    sfx2DSource = CreateAudioSource("2D Sfx source", sfxVolumePercent * masterVolumePercent);
 
     musicSources = new AudioSource[2];
     for (int i = 0; i < musicSources.Length; i += 1)
     {
-      var newMusicSource = new GameObject($"Music source {i + 1}");
-      musicSources[i] = newMusicSource.AddComponent<AudioSource>();
-      newMusicSource.transform.parent = transform;
+      musicSources[i] = CreateAudioSource($"Music source {i + 1}", musicVolumePercent * masterVolumePercent);
+      musicSources[i].loop = true;
     }
 
     Instance = this;
     DontDestroyOnLoad(gameObject);
-
-    masterVolumePercent = PlayerPrefs.GetFloat("master volume", masterVolumePercent);
-    sfxVolumePercent = PlayerPrefs.GetFloat("sfx volume", sfxVolumePercent);
-    musicVolumePercent = PlayerPrefs.GetFloat("music volume", musicVolumePercent);
   }
 
-  AudioSource CreateAudioSource(string name)
+  AudioSource CreateAudioSource(string name, float volume)
   {
     var newMusicSource = new GameObject(name);
     newMusicSource.transform.parent = transform;
-    return newMusicSource.AddComponent<AudioSource>(); ;
+    var source = newMusicSource.AddComponent<AudioSource>();
+    source.volume = volume;
+    return source;
   }
 
   void Start()
@@ -117,16 +118,18 @@ public class AudioManager : MonoBehaviour
         break;
       case AudioChannel.Music:
         musicVolumePercent = volumePercent;
-        foreach (var source in musicSources)
-        {
-          source.volume = musicVolumePercent;
-        }
         break;
+    }
+
+    foreach (var source in musicSources)
+    {
+      source.volume = musicVolumePercent * masterVolumePercent;
     }
 
     PlayerPrefs.SetFloat("master volume", masterVolumePercent);
     PlayerPrefs.SetFloat("sfx volume", sfxVolumePercent);
     PlayerPrefs.SetFloat("music volume", musicVolumePercent);
+    PlayerPrefs.Save();
   }
 
   IEnumerator AnimateMusicCrossfade(float duration)
